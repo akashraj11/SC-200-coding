@@ -1,0 +1,9 @@
+<div class="card" *ngFor="let chal of profile.challengeCreated">
+    <div class="card-header">{{chal.challengeTitle}}</div>
+    <div class="card-body">
+        <p class="card=text"><strong>Challenge created by : {{chal.userId}}</strong></p>
+        <p class="card-text"><strong>Challenge max score : {{chal.maxScore}}</strong></p>
+    </div>
+</div>
+
+  

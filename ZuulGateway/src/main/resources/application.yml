@@ -1,0 +1,69 @@
+#dummy comment
+ribbon:
+    eureka:
+        enabled: false
+server:
+    port: 8081
+  
+zuul:
+    routes:
+        login:
+            
+            url: http://localhost:8184
+        register:
+           
+            url:  http://localhost:8181
+        challenge:
+            url:  http://localhost:8180
+        secure:
+             
+             url:  http://localhost:8186
+        profile:
+            
+            url:  http://localhost:8185
+        file:
+           
+            url: http://localhost:8182
+        vote:
+           
+            url: http://localhost:8190
+        compile:
+            
+            url: http://localhost:8183
+        score:
+            
+            url: http://localhost:8189
+
+
+# The format used for the keystore
+
+
+
+# security:
+#     require-ssl: false
+
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+
+
+logging:
+    level:
+        com.example.howtodoinjava: DEBUG
+spring:
+    application:
+        name: zuul-gateway

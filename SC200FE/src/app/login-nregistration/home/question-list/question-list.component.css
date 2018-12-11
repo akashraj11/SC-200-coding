@@ -1,0 +1,25 @@
+.queslist{
+    text-align: left;
+}
+/* .mat-button{
+    text-align: right;
+} */
+.view-challenge{
+    text-align: right;
+
+
+}
+.mat-button{
+    background-color: lightblue;
+}
+.headingofchallengelist{
+    text-align: left;
+    font-size: 1.4rem;
+    font-family: 'Lucida Sans';
+}
+.mid{
+    text-align: center;
+}
+.jumbotron{
+   background-color: rgb(247, 246, 248);
+}

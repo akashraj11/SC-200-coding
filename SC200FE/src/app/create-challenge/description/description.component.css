@@ -1,0 +1,87 @@
+.quest-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quest-container{ 
+    width: 100%;
+}
+.title{
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+mat-tab-group{
+    width: 90%;
+}
+
+h4{
+    text-align: center;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+}
+@media(min-width:992px){
+    .mynavbar {
+       background: linear-gradient(to bottom, #ffffff 15%, #181818 70%);
+    }
+    
+    #links .nav-link {
+       width:10rem;
+       margin-right: 1rem;
+    }
+    
+    #logout .nav-link{
+       margin-left: 3rem;
+       margin-right: 0%
+    }
+    
+    }
+    .navbar-dark .navbar-nav .nav-link{
+       color: #ffffff;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover{
+       color: #afabab;
+    }
+    .jumbotron{
+       padding-top: 7rem;
+       background-image: url("../../../assets/img/homebg.jpg");
+    }
+    @media(max-width:991px ){
+    .mynavbar {
+       background: linear-gradient(to bottom, #ffffff 25%, #181818 70%);
+    }
+    
+    .navbar-dark .navbar-toggler {
+       color: #3a58dfc4;
+       border-color: #314242;
+    
+    }
+    
+    
+    
+    
+    .navbar-dark .navbar-nav .nav-link{
+    
+       margin-right: auto;
+       margin-left: 2rem;
+    
+    
+    }
+    
+    }
+    .logoimage{
+       max-width: 10rem;
+       max-height: 6rem;
+    }
+    .jumbotron{
+        background-image: url("../../../assets/img/create.jpg");
+        background-size: cover;
+    }

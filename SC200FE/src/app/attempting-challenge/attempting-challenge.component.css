@@ -1,0 +1,173 @@
+/*.container1, .row {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  border: 0;*/
+/*  width: 100%;*/
+/*}*/
+
+/*.structure {*/
+/*  overflow-y: scroll*/
+/*}*/
+
+/*@media(min-width:992px){*/
+/*  .mynavbar {*/
+/*      background: linear-gradient(to right, #ffffff 15%, #181818 70%);*/
+/*  }*/
+  
+/*  #links .nav-link {*/
+/*      width:10rem;*/
+/*      margin-right: 1rem;*/
+/*  }*/
+  
+/*  #logout .nav-link{*/
+/*      margin-left: 3rem;*/
+/*      margin-right: 0%*/
+/*  }*/
+  
+/*  }*/
+/*  .navbar-dark .navbar-nav .nav-link{*/
+/*      color: #ffffff;*/
+/*  }*/
+/*  .navbar-dark .navbar-nav .nav-link:hover{*/
+/*      color: #afabab;*/
+/*  }*/
+/*  @media(max-width:991px ){*/
+/*  .mynavbar {*/
+/*      background: linear-gradient(to bottom, #ffffff 25%, #181818 70%);*/
+/*  }*/
+  
+/*  .navbar-dark .navbar-toggler {*/
+/*      color: #3a58dfc4;*/
+/*      border-color: #314242;*/
+     
+/*  }*/
+  
+  
+/*  .navbar-dark .navbar-nav .nav-link{*/
+     
+/*      margin-right: auto;*/
+/*      margin-left: 2rem;*/
+     
+      
+/*  }*/
+  
+/*  }*/
+/*  .logoimage{*/
+/*      max-width: 10rem;*/
+/*      max-height: 6rem;*/
+/*  }*/
+  
+
+/* .structure   {
+    margin: 0;
+  padding: 0;
+  width: 20%;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.editor {
+    margin: 0;
+  padding: 0;
+  width: 80%;
+} */
+
+/*.no-gutters {*/
+/*  margin-right: 0;*/
+/*  margin-left: 0;*/
+/*}*/
+
+/*.outer{*/
+/*  width: 100%;*/
+/*  padding: 1em;*/
+/*}*/
+.container1, .row {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ width: 100%;
+}
+
+.structure {
+ overflow-y: scroll
+}
+.jumbotron{
+   padding: 0!important;
+   margin: 2.5rem!important;
+   background: linear-gradient(to bottom, #daf4f7d2 15%, #e7e5e5 70%);
+}
+@media(min-width:992px){
+ .mynavbar {
+     background: linear-gradient(to right, #ffffff 15%, #181818 70%);
+ }
+
+ #links .nav-link {
+     width:10rem;
+     margin-right: 1rem;
+ }
+
+ #logout .nav-link{
+     margin-left: 3rem;
+     margin-right: 0%
+ }
+
+ }
+ .navbar-dark .navbar-nav .nav-link{
+     color: #ffffff;
+ }
+ .navbar-dark .navbar-nav .nav-link:hover{
+     color: #afabab;
+ }
+ @media(max-width:991px ){
+ .mynavbar {
+     background: linear-gradient(to bottom, #ffffff 25%, #181818 70%);
+ }
+
+ .navbar-dark .navbar-toggler {
+     color: #3a58dfc4;
+     border-color: #314242;
+
+ }
+
+
+ .navbar-dark .navbar-nav .nav-link{
+
+     margin-right: auto;
+     margin-left: 2rem;
+
+
+ }
+
+ }
+ .logoimage{
+     max-width: 10rem;
+     max-height: 6rem;
+ }
+
+
+/* .structure   {
+   margin: 0;
+ padding: 0;
+ width: 20%;
+ height: 90vh;
+ overflow-y: scroll;
+}
+
+.editor {
+   margin: 0;
+ padding: 0;
+ width: 80%;
+} */
+
+.no-gutters {
+ margin-right: 0;
+ margin-left: 0;
+}
+
+.outer{
+ width: 100%;
+ padding: 1em;
+}
+body{
+   background-image: url("../../assets/img/totalbg.jpg");
+}

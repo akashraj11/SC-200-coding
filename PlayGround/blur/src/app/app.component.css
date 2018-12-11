@@ -1,0 +1,27 @@
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: calc(20px + 2vw);
+    font-weight: 700;
+    color: #fafafa;
+    text-shadow: 2px 2px 2px #000;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.spotlight {
+    position: relative;
+    height: 91%;
+    width: 100vw;
+    margin: 0;
+    background-image: radial-gradient(
+        circle,
+        transparent 160px,
+        rgba(0, 0, 0, 0.85) 200px
+    );
+}

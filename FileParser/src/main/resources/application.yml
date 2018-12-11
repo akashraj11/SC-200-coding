@@ -1,0 +1,20 @@
+server:
+    port: 8182
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+

@@ -1,0 +1,66 @@
+
+
+/*----------------------------
+	The Form
+-----------------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+
+
+#main{
+	
+	width:  600px;
+	height: 500px;
+	padding-top:20px;
+	padding-bottom:20px;
+	position:relative;
+	text-align:center;
+	margin: auto;
+}
+
+#main #container{
+	margin-top: 40px;
+	left:-200px;
+	width: 600px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#main input{
+	margin-bottom: 20px;
+}
+
+
+
+/*----------------------------
+	The Arrow
+-----------------------------*/
+
+
+#main form .arrow{
+    background: url("./assets/img/arrow.png") no-repeat -10px 0;
+    height: 120px;
+    left: 130px;
+    position: absolute;
+    top: 340px;
+    width: 11px;
+    
+   	/* Defining a smooth CSS3 animation for turning the arrow */
+    
+    -moz-transition:0.3s;
+    -webkit-transition:0.3s;
+    -o-transition:0.3s;
+    -ms-transition:0.3s;
+    transition:0.3s;
+    
+    /* Putting the arrow in its initial position */
+    
+	-moz-transform: rotate(-134deg);
+	-webkit-transform: rotate(-134deg);
+	-o-transform: rotate(-134deg);
+	-ms-transform: rotate(-134deg);
+	transform: rotate(-134deg);
+}
+
+

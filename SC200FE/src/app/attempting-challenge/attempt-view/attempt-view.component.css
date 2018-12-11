@@ -1,0 +1,64 @@
+
+.card {
+   min-width: 400px;
+   width:100%;
+   padding: 0;
+ }
+
+ .card {
+  /* // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg
+https://material.angular.io/assets/img/examples/shiba1.jpg
+'); */
+   background-size: cover;
+
+ }
+ .topic{
+     padding: 1.5rem;
+ }
+
+ .mat-button{
+   padding-right: 60px;
+   background-color: rgb(42, 112, 241);
+ }
+.max_score{
+   text-align: right;
+}
+.mat-button{
+   padding-right: 60px;
+   background-color: rgb(53, 115, 231);
+ }
+.tp{
+   display: inline-flex;
+}
+h4{
+   text-align: right;
+   /* padding-left: 150vh; */
+}
+.description{
+    text-align: justify;
+
+
+    /* justify-content: space-evenly; */
+
+}
+
+h1{
+   font-family:  Helvetica;
+    /* color:red; */
+}
+
+.outer1{
+    margin: 1em;
+   
+}
+.complete-challenge{
+    display:flex;
+    flex-direction: column;
+
+}
+.list-group-item {
+    background-image: url("../../../assets/img/cardback.png");
+}
+
+
+

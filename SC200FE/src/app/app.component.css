@@ -1,0 +1,47 @@
+
+
+footer{
+   position:fixed;
+   padding-top: 1rem;
+ bottom:0;
+ left:0;
+ width: 100%;
+ background: linear-gradient(to top, #ffffff 1%, #181818 30%);
+    color: aliceblue;
+    z-index: 1;
+ }
+ body{
+    background-image: url("../assets/img/homebg.jpg");
+ }
+ .jumbo{
+    padding-bottom: 5rem;
+
+    background-size:cover;
+ }
+ .facebook-item{
+    background:darkblue;
+    border-radius: 50%;
+ }
+ .twitter-item{
+    background: lightseagreen;
+    border-radius: 50%
+ }
+ .google-item{
+    background: orangered;
+    border-radius: 50%
+ }
+ .linkedin-item{
+    background: darkviolet;
+    border-radius: 50%
+ }
+ a{
+     text-decoration: none;
+ }
+ i{
+    color: aliceblue;
+
+ }
+ul{
+    padding: 0;
+    margin: 0;
+}

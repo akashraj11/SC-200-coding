@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.stackroute</groupId>
+	<artifactId>neo4jservice</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>neo4jservice</name>
+	<description>Demo project for Spring Boot</description>
+
+
+	<parent>
+	<groupId>com.stackroute</groupId>
+        <artifactId>SC200</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+	<relativePath>../../pom.xml</relativePath> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-data-neo4j</artifactId>-->
+		<!--</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-neo4j -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-ogm-core -->
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-core</artifactId>
+			<version>3.1.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-ogm-api -->
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-api</artifactId>
+			<version>3.1.4</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-neo4j</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-ogm-bolt-driver -->
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-bolt-driver</artifactId>
+
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>javax.xml.bind</groupId>-->
+			<!--<artifactId>jaxb-api</artifactId>-->
+			<!--<version>2.3.0</version>-->
+		<!--</dependency>-->
+
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+                		<groupId>org.apache.maven.plugins</groupId>
+                		<artifactId>maven-compiler-plugin</artifactId>
+                		<configuration>
+                    			<source>8</source>
+                    			<target>8</target>
+                		</configuration>
+            		</plugin>
+		</plugins>
+	</build>
+
+
+</project>

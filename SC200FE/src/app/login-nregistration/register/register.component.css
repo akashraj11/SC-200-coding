@@ -1,0 +1,121 @@
+/*----------------------------
+    The Form
+-----------------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+
+
+#container{
+    top:2em;
+    
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: auto;
+}
+h4{
+    color: whitesmoke;
+    font-family: 'Lobster', cursive;
+}
+
+.logoimage{
+    max-width: 10rem;
+    max-height: 6rem;
+  }
+.jumbotron{
+    background-image:url("../../../assets/img/login.gif");
+   
+    position: relative;
+    padding-top:0;
+    margin: 0!important;
+    
+}
+#container{
+    background-image: url("../../../assets/img/regis.jpg");
+
+}
+.card-body{
+    padding-bottom: 0!important;
+}
+
+.form{
+    text-align: center;
+    
+}
+.card-header{
+    opacity: 0.85;
+    color:black;
+}
+.mynavbar {
+    background: linear-gradient(to bottom, #01b30a6c 25%, #3e4242 70%);
+}
+/* form{
+    background-color: transparent;
+} */
+.register{
+    width: auto;
+
+}
+form input{
+    color:black;
+}
+
+form button[type=submit] {
+    width: 248px;
+    margin-bottom: 0;
+    color: #3f898a;
+    letter-spacing: .05em;
+    text-shadow: 0 1px 0 #133d3e;
+    text-transform: uppercase;
+    background: #225556;
+    border-top-color: #9fb5b5;
+    border-left-color: #608586;
+    border-bottom-color: #1b4849;
+    border-right-color: #1e4d4e;
+    cursor: pointer;
+ }
+
+input{
+    margin-bottom: 1rem;
+}
+
+form{
+    height: 150%;
+    /* padding-bottom: 8rem; */
+}
+
+
+/*----------------------------
+    The Arrow
+-----------------------------*/
+
+
+/* form .arrow{
+   background: url("../register/assets/img/arrow.png") no-repeat -10px 0;
+    margin-top: 3.8rem;
+    height: 12rem;
+   left: 8.6rem;
+   position: absolute;
+   top: 16.9rem;
+   width: 2.5rem;
+
+      /* Defining a smooth CSS3 animation for turning the arrow */
+
+   /* -moz-transition:0.3s;
+   -webkit-transition:0.3s;
+   -o-transition:0.3s;
+   -ms-transition:0.3s;
+   transition:0.3s;
+
+   /* Putting the arrow in its initial position */
+
+    /* -moz-transform: rotate(-134deg);
+    -webkit-transform: rotate(-134deg);
+    -o-transform: rotate(-134deg);
+    -ms-transform: rotate(-134deg);
+    transform: rotate(-134deg); */
+/* } */
+
+button{
+    left: 10rem;
+}

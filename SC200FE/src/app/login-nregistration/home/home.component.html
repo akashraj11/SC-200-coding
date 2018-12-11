@@ -1,0 +1,76 @@
+<body>
+   <header>
+
+ <nav class="navbar fixed-top navbar-expand-lg mynavbar navbar-dark justify-content-center">
+   <div class="navbar-brand">
+     <img src="../../../assets/text-boxes.png" class="logoimage">
+   </div>
+   <br>
+
+
+
+   <div class="collapse navbar-collapse"
+        [ngClass]="{ 'show': navbarOpen }">
+     <ul class="navbar-nav mr-auto col-md-12 navlist">
+       <li class="nav-item col-md-6" >
+         <app-search (datafromchild)="setSearchText($event)"></app-search>
+       </li>
+
+       <li class="nav-item  justify-content-center" id="links">
+         <a [routerLink]="['/challenge/add']" class="nav-link" >Create Challenge</a>
+       </li>
+       <li class="nav-item links1 justify-content-center">
+         <a [routerLink]="['/profile', currentUser.username]" class="nav-link " >Profile</a>
+       </li>
+       <li class="nav-item  justify-content-center" id="logout">
+         <a [routerLink]="['/login']" class="nav-link">LogOut</a>
+        </li>
+     </ul>
+
+   </div>
+   <button class="navbar-toggler" type="button"
+           (click)="toggleNavbar()">
+
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ </nav>
+</header>
+<div class="jumbo">
+ <div class="container-fluid">
+    <div *ngIf= "result?.length <1" >
+          <div *ngIf= "searchText" style="font-family: 'Dancing Script', cursive;color:aliceblue; border-color: antiquewhite; border-top:4px dotted ;border-bottom:4px dotted;margin-bottom:2rem;">
+            <p style="text-align:center;margin:3rem;font-size:4vw;font-weight: bold;">No Result Found!!!</p>
+          </div>
+        </div>
+ <div *ngIf='result'>
+
+     <div class="card-deck-wrapper">
+         <div class="card-deck-md-12">
+           <div class="card" *ngFor="let challenge of result ">
+             <!-- Card 1 -->
+
+             <div class="card-header">{{ challenge.challengeTitle }}</div>
+             <div class="card-body">
+               <div class="challengecard">
+                 <p class="card-text"><strong>Level : </strong>{{challenge.level}}</p>
+                 <p class="card-text"><strong>Description : </strong> <br>  {{challenge.challengeStamp}}</p>
+               </div>
+               <button  class="btn btn-primary" (click)="attempt(challenge.challengeId)">Attempt Challenge</button>
+             </div>
+
+
+           </div>
+         </div>
+       </div>
+
+
+</div>
+<app-recommedation-card *ngIf= "result?.length <1" [name]="currentUser.username" ></app-recommedation-card>
+<div class="jumbo">
+   <app-question-list  *ngIf= "result?.length <1"></app-question-list>
+</div>
+
+</div>
+</div>
+
+</body>

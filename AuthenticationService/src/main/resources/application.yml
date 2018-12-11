@@ -1,0 +1,39 @@
+server:
+    port: 8184
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: 12345678
+        url: jdbc:mysql://localhost/login
+        username: root
+    jpa:
+        generate-ddl: false
+        hibernate:
+            ddl-auto: update
+        openInView: false
+        show_sql: true
+usercontroller:
+    messages:
+        exception1: User Not Found
+        exception2: Sucessfully Created
+        exception3: please fill in username and password
+        exception4: user email not found
+        exception5: Invalid Login.Please check your username and password
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+

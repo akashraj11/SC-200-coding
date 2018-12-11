@@ -1,0 +1,23 @@
+localhost: 'localhost:9092'
+
+#serverport:'8090'
+server:
+  port: 8190
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+

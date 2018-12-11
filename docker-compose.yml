@@ -1,0 +1,269 @@
+version:  '2'
+services:
+  eureka:
+    image: eureka:v1
+    build: EurekaRegistry/
+    restart: always
+    container_name: eureka-container
+    network_mode: host
+    ports:
+      - 8091:8091
+    expose:
+      - 8091
+
+  config-server:
+    image: config-server:v1
+    build: ConfigServer/
+    restart: always
+    container_name: config-container
+    network_mode: host
+    depends_on:
+      - eureka
+    ports:
+      - 8092:8092
+    expose:
+      - 8092
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    restart: always
+    
+  kafka:
+    image: wurstmeister/kafka:0.10.2.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      #KAFKA_CREATE_TOPICS: "test5:1:1"
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    restart: always
+
+  mongodb:
+    image: mongo:3.2-jessie
+    ports:
+      - "27017:27017"
+    container_name: mongo-movie
+    network_mode: host
+    depends_on:
+      - config-server
+    volumes:
+      - '/home/cgi/data/mysql:/data/db'
+  
+  mysql:
+    image: mysql
+    container_name: test-mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345678"
+      MYSQL_DATABASES: login
+    volumes:
+      - /storage/docker/mysql-datadir:/var/lib/mysql
+  
+  gateway:
+    image: zuulgateway:v1
+    build: ZuulGateway/
+    #restart: always
+    container_name: zuul-container
+    network_mode: host
+    ports:
+      - 8081:8081
+    expose:
+      - 8081
+
+  challenge-creator-demo:
+    image: challenge-creator:v1
+    build: ChallengeCreator/
+    restart: always
+    container_name: challenge-creator
+    network_mode: host
+    depends_on:
+      - mongodb
+      - kafka
+    ports:
+      - 8180:8180
+    expose:
+      - 8180
+
+  register-demo:
+    image: register:v1
+    build: RegisterService/
+    restart: always
+    container_name: register
+    network_mode: host
+    depends_on:
+      - mongodb
+      - kafka
+    ports:
+      - 8181:8181
+    expose:
+      - 8181
+  scoring-demo:    
+   image:  scoring:v1
+   build:  Scoring/
+   restart:  always
+   network_mode:  host
+   container_name:  scoring
+   depends_on:
+     - kafka
+   ports:
+     -  8189:8189
+   expose:
+     -  8189
+     
+  voting-demo:    
+   image:  voting:v1
+   build:  VotingService/
+   restart:  always
+   network_mode:  host
+   container_name:  voting
+   depends_on:
+     - mongodb
+     - kafka
+   ports:
+     -  8190:8190
+   expose:
+     -  8190
+
+  file-parser-demo:
+    image: file-parser:v1
+    build: FileParser/
+    restart: always
+    container_name: file-parser
+    network_mode: host
+    ports:
+      - 8182:8182
+    expose:
+      - 8182
+    volumes:
+            - '../Directory:/usr/app1'
+
+  compilation-demo:
+    image: compilation:v1
+    build: Compilation/
+    restart: always
+    container_name: compilation
+    network_mode: host
+    ports:
+      - 0.0.0.0:8183:8183
+    expose:
+      - 8183
+    volumes:
+            - '../Directory:/usr/app1'
+            - '/usr/bin/docker:/usr/bin/docker'
+            - '/var/run/docker.sock:/var/run/docker.sock'
+            - '/usr/local/bin/docker-compose:/usr/local/bin/docker-compose'
+    tty: true
+
+  authentication-service-demo:
+    image: authentication-service:v1
+    build: AuthenticationService/
+    restart: always
+    container_name: authentication-service
+    network_mode: host
+    depends_on:
+      - mysql
+      - kafka
+    ports:
+      - 8184:8184
+    expose:
+      - 8184
+
+
+  user-profile-demo:
+    image: user-profile-service:v1
+    build: UserProfile/
+    restart: always
+    container_name: user-profile
+    network_mode: host
+    depends_on:
+      - mongodb
+      - kafka
+    ports:
+      - 8185:8185
+    expose:
+      - 8185
+
+
+  neo4j:
+    network_mode: host
+    image: neo4j:latest
+    ports:
+     - "7474:7474"
+     - "7687:7687"
+    environment:
+     - NEO4J_AUTH=neo4j/root
+    volumes:
+     - '../neo4j-data:/data'
+
+
+  recommendation:
+    image: springboot-recommendation1
+    build: Neo4j-docker/recommendation/
+    restart: always
+    network_mode: host
+    container_name: spring-recommendation1
+    depends_on:
+      - neo4j
+      - kafka
+    ports:
+      - 8186:8186
+    expose:
+      - 8186
+
+  ontology:    
+   image:  springboot-ontology
+   build:  Neo4j-docker/neo4jService/
+   restart:  always
+   network_mode:  host
+   container_name:  neo4jservice
+   depends_on:
+     -  neo4j
+     - kafka
+   ports:
+     -  8187:8187
+   expose:
+     -  8187
+
+  angular:
+          container_name: sc200
+          build: SC200FE/
+          ports:
+          - 4200:4200
+          expose:
+          - 4200
+  grafana:
+    ports:
+    - "3000:3000"
+    volumes:
+    - /var/lib/grafana
+    network_mode: host
+    image: grafana/grafana
+    container_name: grafana
+    depends_on:
+      - prometheus
+  prometheus:
+    ports:
+      - "9090:9090"
+    expose:
+      - 9090
+    network_mode: host
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    image: prom/prometheus
+    container_name: prometheus

@@ -1,0 +1,12 @@
+<!--<mat-card *ngFor="let chal of profile.challengeAttempted">-->
+<!--  <mat-card-header>-->
+<!--    <mat-card-title>{{chal.challengeTitle}}</mat-card-title>-->
+<!--  </mat-card-header>-->
+<!--</mat-card>-->
+<div class="card" *ngFor="let chal of profile.challengeAttempted">
+    <div class="card-header">{{chal.challengeTitle}}</div>
+    <div class="card-body">
+        <p class="card-text"><strong>Challenge max score : {{chal.maxScore}}</strong></p>
+        <p class="card-text"><strong>Score obtained:{{chal.challengeScore}}</strong></p>
+    </div>
+</div>

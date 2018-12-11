@@ -1,0 +1,38 @@
+<p>
+  recommedation-card works!
+</p>
+<div style="text-align:center">
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input class="form-control mr-sm-10" type="search" name="Search Name" aria-label="Search" [(ngModel)]="name">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
+      </form>
+    <p>
+        <h1>
+            Welcome to {{ title }}!
+          </h1>
+<div *ngIf="challenges"> 
+
+    
+  <div class="card col-md-4" *ngFor="let challenge of challenges ">
+      <div class="card-block">
+          <mat-card>
+              <mat-card-header>
+               <mat-card-title>Title : {{ challenge.title }}</mat-card-title>
+               
+               
+               <!-- <img src="{{movie.poster_path}}" alt="image not found"> -->
+               </mat-card-header>
+               <mat-card-content>
+                      <p>Level:{{challenge.level}}</p>
+                       <p>Description : {{challenge.challengeStamp}}</p>
+  
+               </mat-card-content>
+               <mat-card-actions>
+                  <button class="mat-button" mat-button  (click)="Attempt()">Attempt Challenge</button>
+                  <!-- <router-outlet></router-outlet>
+                  <button mat-button (click)="delete(movie.id)">delete</button> 
+                  <router-outlet></router-outlet>     -->
+          </mat-card-actions> 
+      </mat-card>
+    </div>

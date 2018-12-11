@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: url(app/login-register/login/assets/img/bg.jpg) no-repeat center;
+    background-size: cover;
+    height: 636px;
+    cursor: none;
+}

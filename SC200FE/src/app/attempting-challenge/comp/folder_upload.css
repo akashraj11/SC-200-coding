@@ -1,0 +1,8 @@
+.filechoose{
+   border-style: groove;
+   border-color: rgb(135, 218, 224);
+
+}
+.filechoose:hover{
+   border-color: rgba(180, 247, 92, 0.952);
+}

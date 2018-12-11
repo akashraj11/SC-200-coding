@@ -1,0 +1,15 @@
+image: maven:3.5.4-jdk-10
+
+before_script:
+- apt-get update -qq && apt-get install
+
+stages:
+- test
+- build
+
+Build:
+  script: mvn package
+
+
+Test:
+  script: mvn test

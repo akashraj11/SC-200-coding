@@ -1,0 +1,234 @@
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg mynavbar navbar-dark justify-content-center">
+    <div class="navbar-brand">
+      <a [routerLink]="['../../']"> <img src="../../../assets/text-boxes.png" class="logoimage"></a>
+    </div>
+
+    <a [routerLink]="['../logout']"><button class="btn btn-outline-primary">Logout</button></a>
+  </nav>
+</header>
+<div class="jumbotron">
+<h4 class="title">Complete the following steps to POST a challenge :)</h4>
+
+<form class="quest-container" [formGroup]="questDesc">
+  <!-- <mat-form-field appearance="outline">
+      <mat-label>Challenge Id</mat-label>
+      <input type="text" matInput placeholder="Challenge Id" class="form-control" id="id" formControlName="id" [readonly]="readOnlyFlag"
+        required>
+      <mat-error *ngIf="id.invalid && (id.dirty || id.touched)">
+        Challenge Id shouldn't be null.
+      </mat-error>
+    </mat-form-field> -->
+
+  <mat-tab-group>
+    <mat-tab label="Step 1" class="challenge" *ngIf="tab==1">
+      <mat-form-field appearance="outline">
+        <!-- <mat-label>Challenge Title</mat-label> -->
+        <input matInput type="text" placeholder="Challenge Title" formControlName="challengeTitle" required>
+        <mat-error *ngIf="questDesc.get('challengeTitle').invalid && (questDesc.get('challengeTitle').dirty || questDesc.get('challengeTitle').touched)">
+          Challenge Title shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Challenge Description</mat-label>
+        <textarea matInput placeholder="Challenge Description" class="form-control" id="description" formControlName="challengeStamp"
+          required></textarea>
+        <mat-error *ngIf="desc.invalid && (desc.dirty || desc.touched)">
+          Challenge Description shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Problem Statement</mat-label>
+        <textarea matInput placeholder="Problem Statement" class="form-control" id="statement" formControlName="challengeStatement"
+          required cdkTextareaAutosize cdkAutosizeMinRows="10" cdkAutosizeMaxRows="20"></textarea>
+        <mat-error *ngIf="stat.invalid && (stat.dirty || stat.touched)">
+          Problem Statement shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+
+      <div>
+          <button mat-raised-button color="primary" (click)="tab=2">Next</button>
+        </div>
+
+    </mat-tab>
+
+    <mat-tab label="Step 2" class="challenge" *ngIf="tab==2">
+      <mat-form-field appearance="outline">
+        <mat-label>Input Format</mat-label>
+        <textarea matInput placeholder="Input Format" class="form-control" id="inFormat" formControlName="inputFormat"
+          required cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"></textarea>
+        <mat-error *ngIf="inFormat.invalid && (inFormat.dirty || inFormat.touched)">
+          Input Format shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Output Format</mat-label>
+        <textarea matInput placeholder="Output Format" class="form-control" id="outFormat" formControlName="outputFormat"
+          required cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"></textarea>
+        <mat-error *ngIf="outFormat.invalid && (outFormat.dirty || outFormat.touched)">
+          Output Format shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Constraints</mat-label>
+        <textarea matInput placeholder="Constraints" class="form-control" id="constr" formControlName="constraints"
+          required cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"></textarea>
+        <mat-error *ngIf="constraints.invalid && (constraints.dirty || constraints.touched)">
+          Constraints shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Topic</mat-label>
+        <input matInput placeholder="Topic" class="form-control" id="topic" formControlName="topic" required>
+        <mat-error *ngIf="topic.invalid && (topic.dirty || topic.touched)">
+          Topic shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+      <div> 
+          <button mat-raised-button color="primary" style="margin:0.2rem;" (click)="tab=3">Next</button>
+          <button mat-raised-button color="primary" style="margin:0.2rem;" (click)="tab=1">Back</button>
+          
+        </div>
+
+
+
+    </mat-tab>
+
+
+    <mat-tab label="Step 3" class="challenge" *ngIf="tab==3">
+      <mat-form-field appearance="outline">
+        <mat-label>Max Score</mat-label>
+        <input matInput placeholder="Maximum Score" type="number" class="form-control" id="maxScore" formControlName="maxScore"
+          required>
+        <mat-hint>Max Score should be between 5 to 100.</mat-hint>
+        <mat-error *ngIf="maxScore.errors && (maxScore.dirty || maxScore.touched)">
+          <mat-error *ngIf="maxScore.errors.required">
+            Max Score shouldn't be empty.
+          </mat-error>
+          <mat-error *ngIf="maxScore.errors.min">
+            MaxScore should be more than 5.
+          </mat-error>
+          <mat-error *ngIf="maxScore.errors.max">
+            MaxScore shouldn't be more than 100.
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Language</mat-label>
+        <mat-select class="form-control" id="lang" formControlName="programmingLang" required>
+          <mat-option *ngFor="let lan of availbLang" [value]="lan">
+            {{ lan }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="programmingLang.invalid && (programmingLang.dirty || programmingLang.touched)">
+          Programming Language shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Solution URL</mat-label>
+        <input matInput placeholder=" Solution-URL" class="form-control" type="url" id="SolUrl" formControlName="solutionUrl"
+          required>
+        <mat-error *ngIf="solutionUrl.errors && (solutionUrl.dirty || solutionUrl.touched)">
+          <mat-error *ngIf="solutionUrl.errors.required">
+            Solution URL shouldn't be empty.
+          </mat-error>
+          <mat-error *ngIf="solutionUrl.invalid">
+            URL is invalid.
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>BoilerPlate URL</mat-label>
+        <input matInput placeholder="BoilerPlate-URL" class="form-control" type="url" id="BoilerUrl" formControlName="boilerPlateUrl"
+          required>
+        <mat-error *ngIf="boilerPlateUrl.errors && (boilerPlateUrl.dirty || boilerPlateUrl.touched)">
+          <mat-error *ngIf="boilerPlateUrl.errors.required">
+            BoilerPlate URL shouldn't be empty.
+          </mat-error>
+          <mat-error *ngIf="boilerPlateUrl.invalid">
+            URL is invalid.
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+      <div>
+          <button mat-raised-button color="primary" style="margin:0.2rem;" (click)="tab=4">Next</button>
+          <button mat-raised-button color="primary" style="margin:0.2rem;"  (click)="tab=2">Back</button>
+          
+        </div>
+    </mat-tab>
+
+
+    <mat-tab label="Step 4" class="challenge" *ngIf="tab==4">
+      <mat-form-field appearance="outline">
+        <mat-label>Max Runtime Allowed</mat-label>
+        <input matInput placeholder="Maximum Runtime Allowed" type="number" class="form-control" id="maxRuntime"
+          formControlName="maxRuntime" required>
+        <mat-error *ngIf="maxRuntime.invalid && (maxRuntime.dirty || maxRuntime.touched)">
+          Max Runtime Allowed shouldn't be empty.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Level</mat-label>
+        <input matInput placeholder="Level" class="form-control" type="number" id="lvl" formControlName="level"
+          required>
+        <mat-hint>Level should be between 1 to 10</mat-hint>
+        <mat-error *ngIf="level.errors && (level.dirty || level.touched)">
+          <mat-error *ngIf="level.errors.required">
+            Level shouldn't be empty.
+          </mat-error>
+          <mat-error *ngIf="level.errors.min">
+            Level should be more than or equal to 1.
+          </mat-error>
+          <mat-error *ngIf="level.errors.max">
+            Level shouldn't be more than 10.
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Challenge Rating</mat-label>
+        <input type="number" matInput placeholder="Challenge Rating" class="form-control" id="rating" formControlName="rating"
+          required>
+        <mat-hint>Rating should be between 1 to 10</mat-hint>
+        <mat-error *ngIf="rating.errors && (rating.dirty || rating.touched)">
+          <mat-error *ngIf="rating.errors.required">
+            Rating shouldn't be empty.
+          </mat-error>
+          <mat-error *ngIf="rating.errors.min">
+            Rating should be more than or equal to 1.
+          </mat-error>
+          <mat-error *ngIf="rating.errors.max">
+            Rating shouldn't be more than 10.
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <div>
+          <button mat-raised-button color="primary" (click)="tab=3">Back</button>
+        </div>
+<div class="submit">
+        <button *ngIf="flag==1" mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="!questDesc.valid">Submit</button>
+        <button *ngIf="flag==2" mat-raised-button color="primary" type="submit" [disabled]="!questDesc.valid">Update</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</form>
+</div>
+</body>

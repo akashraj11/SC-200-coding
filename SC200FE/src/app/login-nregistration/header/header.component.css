@@ -1,0 +1,57 @@
+/*.jumbotron{*/
+/*    background-image: url("../../../assets/img/login-bg.jpg");*/
+/*   padding: 0;*/
+/*   background-size:cover;*/
+   /* background-size: 100% auto;
+ */
+/*}*/
+/*  body{*/
+/*    background-image: url("../../../assets/img/login-bg.jpg");*/
+/*   background:no-repeat;*/
+/*background-size: cover;}*/
+
+
+
+/*@media(min-width:680px){*/
+
+/*   .loginbox{*/
+/*       margin-top:4rem!important;*/
+/*   }*/
+/*}*/
+
+/*.mynavbar {*/
+/*           background: linear-gradient(to bottom, #d6d6d5d3 25%, #69bcca 70%);*/
+/*       }*/
+
+body{
+   background-image: url("../../../assets/img/login.gif");
+ 
+  
+  /* background-size: 100% auto;
+*/
+}
+.logoimage{
+  max-width: 8rem;
+  max-height:4rem;
+}
+
+
+
+
+@media(min-width:680px){
+
+  .loginbox{
+      margin-top:3rem!important;
+      padding-bottom: 6rem!important;
+  }
+}
+.logoimage{
+  max-width: 10rem;
+  max-height: 6rem;
+}
+.navbar{
+    padding:0;
+}
+.mynavbar {
+  background: linear-gradient(to bottom, #01b30a6c 25%, #3e4242 70%);
+      }

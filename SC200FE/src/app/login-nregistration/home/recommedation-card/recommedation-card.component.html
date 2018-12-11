@@ -1,0 +1,42 @@
+<div class="jumbotron ">
+   <p class="headtitle">
+     Welcome to {{ title }}!
+   </p>
+   <p class="tagline">
+     Be first to complete Challlenges
+     </p>
+ </div>
+ <div class="jumbotron">
+   <div *ngIf="challenges">
+     <div class="card-deck-wrapper">
+       <div class="card-deck">
+         <div class="card" *ngFor="let challenge of challenges ">
+           <!-- Card 1 -->
+
+           <div class="card-header">{{ challenge.challengeTitle }}</div>
+           <div class="card-body">
+             <div class="challengecard" >
+               <p class="card-text"><strong>Level : </strong>{{challenge.level}}</p>
+               <p class="card-text"><strong>Description : </strong> <br>  {{challenge.challengeStamp}}</p>
+             </div>
+             <button  class="btn btn-primary" (click)="attempt(challenge.challengeId)">Attempt Challenge</button>
+           </div>
+
+           <!-- <div class="card col-md-12 " >
+     <div class="card-block ">
+           <div class="card-title"><h4>{{ challenge.title }}</h4> </div>
+         <div class="card-text">
+           <p><strong>Level : </strong>{{challenge.level}}</p>
+           <p><strong>Description : </strong> <br>  {{challenge.challengeStamp}}</p>
+
+         </div>
+
+           <button mat-raised-button color='primary' (click)="attempt(challenge.id)">Attempt Challenge</button>
+
+         </div> -->
+
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

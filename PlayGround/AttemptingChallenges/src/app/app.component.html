@@ -1,0 +1,16 @@
+<div style="display: flex"><folder-upload></folder-upload>
+<button (click) = "onShow()">Show Template</button>
+</div>
+<div style="padding: 20px; height: 100%; box-sizing: border-box;">
+        <mat-card style="height: 100%; box-sizing: border-box; padding:0">
+            <br>
+        
+            <app-directory [fileElements]="fileElements | async" [path]="currentPath" [canNavigateUp]="canNavigateUp"
+            (folderAdded)="addFolder($event)" (elementRemoved)="removeElement($event)" (fileAdded)="addFile($event)"
+            (navigatedDown)="navigateToFolder($event)" (navigatedUp)="navigateUp()" (elementRenamed)="renameElement($event)"
+            (elementMoved)="moveElement($event)" ></app-directory>
+            
+    </mat-card>
+<router-outlet></router-outlet>
+</div>
+<!-- <app-editor></app-editor> -->

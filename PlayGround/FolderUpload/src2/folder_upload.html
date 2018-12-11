@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="folder_upload.css">
+
+<h1>Drop a folder to upload</h1>
+<div
+  id="drop-area"
+  (dragenter)="dragenter($event)"
+  (dragover)="dragover($event)"
+  (drop)="drop($event)"
+>
+  <span *ngIf="!canDropFolder">
+    Folder Drop Not Supported by Browser
+  </span>
+</div>
+
+
+<h1>Select a folder to upload</h1>
+
+<div>
+  <input
+    #folderInput
+    type="file"
+    (change)="filesPicked(folderInput.files)"
+    webkitDirectory
+  >
+</div>
+
+<div *ngIf="uploadPaths.length > 0">Upload Data
+  <div *ngFor="#path of uploadPaths">{{path}}</div>
+</div>

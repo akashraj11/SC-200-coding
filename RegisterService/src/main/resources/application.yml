@@ -1,0 +1,48 @@
+logging:
+    file: ${logging.path}/log.log
+    level:
+        com:
+            stackroute:
+                moviesNew: DEBUG
+        org:
+            springframework:
+                web: ERROR
+    path: logs
+    pattern:
+        console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level)
+            %logger.%M - %msg%n'
+        file: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n'
+server:
+    port: 8181
+spring:
+    applicatioon:
+        name: register
+    data:
+        mongodb:
+            database: UserDB
+            port: 27017
+            uri: mongodb://localhost:27017/UserDB
+user-controller:
+    saveUser: '"successfully saved user"'
+user-service:
+    impl:
+        nouserEx: '"no such users exist"'
+        usernameEx: '"user name already exists"'
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+

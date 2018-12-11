@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-content>
+    <h3>Challenge Title : {{detail.challengeTitle}}</h3>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <h3>Score :</h3>
+    <h4 *ngIf="detail">{{value}} / {{detail.challengeScore}}</h4>
+    <mat-progress-bar *ngIf="!detail" mode="buffer"></mat-progress-bar>
+    <mat-progress-bar *ngIf="detail" mode="determinate" [value]="percent"></mat-progress-bar>  
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-title>Test Case :</mat-card-title>
+  <div *ngIf="!receivedData">
+    <mat-card-content>
+      <mat-spinner></mat-spinner>
+    </mat-card-content>
+  </div>
+  <div *ngIf="receivedData">
+   <mat-card-content>
+      <div *ngIf="myField" [innerHTML]="myField | safe"></div>
+    </mat-card-content>
+  </div>
+</mat-card>
+<app-feedback *ngIf = "showFlag" [detail]="detail"></app-feedback>
+<mat-card *ngIf = "showFlag">
+  <mat-card-content>
+    <button mat-button color="warn" (click)="retry()">
+      <mat-icon>replay</mat-icon> Retry
+    </button>
+    <button mat-button color="primary" (click)="home()">
+      <mat-icon>arrow_back</mat-icon> Go Back Home
+    </button>
+  </mat-card-content>
+</mat-card>

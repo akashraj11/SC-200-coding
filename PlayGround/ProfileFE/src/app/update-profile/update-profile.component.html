@@ -1,0 +1,46 @@
+<div class="profile-container">
+  <form class="profile-container" [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email-Id</mat-label>
+      <input type="email" matInput placeholder="Email-Id" class="form-control" id="email" formControlName="email" [readonly]=true required>
+      <mat-error *ngIf="email.invalid">
+          Email-Id is Invalid.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput placeholder="First Name" class="form-control" id="firstName" formControlName="firstName" required>
+        <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+            First Name shouldn't be empty
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput placeholder="Last Name" class="form-control" id="lastName" formControlName="lastName" required>
+          <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+              Last Name shouldn't be empty
+            </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input type="text" matInput placeholder="User Name" class="form-control" id="userName" formControlName="userName" required>
+          <mat-error *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+              User Name shouldn't be empty
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Contact Number</mat-label>
+            <input type="text" matInput placeholder="Contact Number" class="form-control" id="contactNumber" formControlName="contactNumber" required>
+            <mat-hint>Contact Number should be of 10 digits</mat-hint>
+            <mat-error *ngIf="contactNumber.errors && (contactNumber.dirty || contactNumber.touched)">
+                <mat-error *ngIf="contactNumber.errors.required">
+                  Contact Number shouldn't be empty
+                </mat-error>
+                <mat-error *ngIf="contactNumber.invalid">
+                  Contact Number is invalid
+                </mat-error>
+              </mat-error>
+          </mat-form-field> 
+    <button mat-raised-button color="primary" type="submit" [disabled]="!updateForm.valid">Update</button>
+  </form>
+</div>

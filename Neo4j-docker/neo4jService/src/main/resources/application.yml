@@ -1,0 +1,28 @@
+#host: http://172.23.239.131:9092
+host: 'localhost:9092'
+server:
+    port: 8187
+spring:
+    data:
+        neo4j:
+            password: root
+            uri: bolt://localhost
+            username: neo4j
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+

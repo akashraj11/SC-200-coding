@@ -1,0 +1,13 @@
+<div class="section">
+<h2 class="title">Challenges Upvoted</h2>
+<div class="card" *ngFor="let chal of profile.challengeUpvoted">
+<div class="card-header">{{chal.challengeTitle}}</div>
+</div>
+</div>
+<div class="section">
+<h2 class="title">Challenges Downvoted</h2>
+<div class="card" *ngFor="let chal of profile.challengeDownvoted">
+<div class="card-header">{{chal.challengeTitle}}</div>
+
+</div>
+</div>

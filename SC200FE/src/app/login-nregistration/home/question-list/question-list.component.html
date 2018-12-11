@@ -1,0 +1,53 @@
+<div class="jumbotron">
+<div class="headingofchallengelist">
+<p><b>Complete Challenge List:</b> <br><br></p>
+</div>
+
+<!-- <div class="viewList" *ngFor="let v of viewList"> -->
+
+ <div class="queslist" *ngFor="let q of quesList | paginate: {itemsPerPage:4,currentPage:p}">
+
+
+     <div layout="row" layout-xs="column">
+         <div flex>
+           <!-- <mat-list-item> -->
+             <!-- <p>{{q}}</p> -->
+             <!-- <p>Id:{{q.challengeId}}</p> -->
+             <p><b>Title:</b> {{q.challengeTitle}} </p>
+           <!-- </mat-list-item> -->
+           <!-- <mat-list-item> -->
+             <p><b>Small description:</b> {{q.challengeStamp}} </p>
+           <!-- </mat-list-item> -->
+         </div>
+
+
+       <div flex class="view-challenge">
+         <mat-list-item>
+         <button class="mat-button" mat-button  type="submit" (click)="View(q.challengeId)">Attempt Challenge</button>
+         </mat-list-item>
+       </div>
+
+
+   <mat-divider></mat-divider>
+
+
+ </div>
+ <!-- <pagination-controls (pageChange)="p= $event"></pagination-controls> -->
+
+</div>
+<div class="mid">
+<pagination-controls (pageChange)="p= $event"></pagination-controls>
+</div>
+</div>
+
+<!--
+<pagination-controls>
+   total-items="totalItems"
+   items-per-page= "itemsPerPage"
+   ng-model="currentPage"
+   class="pagination-sm"
+</pagination-controls>
+
+
+
+<tr ng-repeat="country in quesList((currentPage -1) * itemsPerPage, currentPage * itemsPerPage) ">  -->

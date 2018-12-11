@@ -1,0 +1,48 @@
+<body>
+  <nav class="navbar navbar-expand-lg mynavbar navbar-dark justify-content-center">
+    <div class="navbar-brand">
+      <a [routerLink]="['../../']"> <img src="../../../assets/text-boxes.png" class="logoimage"></a>
+    </div>
+    <br>
+
+
+
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto col-md-12 navlist">
+        <li class="nav-item  justify-content-end" id="logout">
+          <a [routerLink]="['/login']" class="nav-link"><button class="btn btn-outline-primary" style="margin:0.1rem;">Logout</button></a>
+        </li>
+      </ul>
+
+    </div>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="jumbotron">
+    <app-attempt-view [completechallenge1]="completechallenge"></app-attempt-view>
+    <div class="outer">
+      <div>
+        <folder-upload></folder-upload>
+      </div>
+      <br />
+      <div class="container1">
+        <div class="row">
+          <div class="col-lg-4  structure">
+            <app-directory [fileElements]="fileElements | async" [path]="currentPath" [canNavigateUp]="canNavigateUp"
+              [userName]="dockUserName" [challengeId]="completechallenge.challengeId" (folderAdded)="addFolder($event)"
+              (elementRemoved)="removeElement($event)" (fileAdded)="addFile($event)" (navigatedDown)="navigateToFolder($event)"
+              (navigatedUp)="navigateUp()" (elementRenamed)="renameElement($event)" (elementMoved)="moveElement($event)"
+              (clickedFile)="parentData = $event"></app-directory>
+          </div>
+          <div class="col-lg-8 editor">
+            <app-editor [fileName]="parentData" [userName]="dockUserName" [challengeId]="completechallenge.challengeId"
+              [completechallenge]="completechallenge" [uid]="userName"></app-editor>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

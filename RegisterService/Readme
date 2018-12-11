@@ -1,0 +1,7 @@
+1.This project has the test cases for all the layers
+
+2.In this the hard coded strings were removed using the application properties.
+
+3.In this exceptions of all types were handled using the generic exception ( like database failure etc)
+
+4.lombok is used in the movies class.

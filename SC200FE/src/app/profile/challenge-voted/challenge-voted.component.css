@@ -1,0 +1,17 @@
+#second{
+   margin-top: 1em;
+}
+.section{
+    margin: 2rem;
+    border: 1px;
+   border-style:groove;
+   padding: 1rem;
+}
+.title{
+
+   font-family: 'Dancing Script', cursive;
+   text-align: center;
+}
+.card-header{
+   text-align: center;
+}

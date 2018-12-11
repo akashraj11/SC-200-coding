@@ -1,0 +1,49 @@
+challenge-exceptions:
+    challengeNotF: '"Challenge not found in between"'
+challenge-repo:
+    challengeRating:
+        query: '"{ ''rating'' : { $gt: ?0, $lt: ?1 } }"'
+    challengeTitle:
+        query: '"{ ''challengeTitle'' : ?0 }"'
+challenge-service:
+    challengeExistsEx: '"Challenge already exists exception "'
+    challengeNotExistsEx: '"Challenge not found exception - {}"'
+logging:
+    file: ${logging.path}/log.log
+    level:
+        com:
+            stackroute:
+                challenge-creator: DEBUG
+        org:
+            springframework:
+                web: ERROR
+    path: logs
+    pattern:
+        console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level)
+            %logger.%M - %msg%n'
+        file: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n'
+server:
+    port: 8180
+spring:
+    data:
+        mongodb:
+            database: ChallengeDB1
+            uri: mongodb://localhost:27017/ChallengeDB1
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+

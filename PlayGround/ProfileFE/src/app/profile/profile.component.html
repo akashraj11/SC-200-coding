@@ -1,0 +1,27 @@
+<mat-tab-group>
+  <mat-tab label="Profile"> 
+    <div *ngIf="profile">
+      <app-show-profile [profile]="profile"></app-show-profile>
+    </div>
+  </mat-tab>
+  <mat-tab label="Update Profile">
+    <div *ngIf="profile">
+      <app-update-profile [profile]="profile"></app-update-profile>
+    </div>
+  </mat-tab>
+  <mat-tab label="Challenges Attempted"> 
+    <div *ngIf="profile">
+      <app-challenge-attempted [profile]="profile"></app-challenge-attempted>
+    </div>
+  </mat-tab>
+  <mat-tab label="Challenges Created"> 
+    <div *ngIf="profile">
+      <app-challenge-created [profile]="profile"></app-challenge-created>
+    </div>
+  </mat-tab>
+  <mat-tab label="Challenges Voted"> 
+    <div *ngIf="profile">
+      <app-challenge-voted [profile]="profile"></app-challenge-voted>
+    </div>
+  </mat-tab>
+</mat-tab-group>

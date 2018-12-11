@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: scoring
+
+server:
+  port: 8189
+
+kafka:
+  ip: 'localhost:9092'
+  topic: 'scoreTOPIC'
+
+logging:
+  file: logs/log.log
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n'
+    file: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n'
+  level:
+    root: INFO
+    com:
+      stackroute: DEBUG
+    org:
+      springframework:
+        boot:
+          web: ERROR
+management:
+    security:
+        enabled: 'false'
+    endpoint:
+        metrics:
+            enabled: 'true'
+        prometheus:
+            enabled: 'true'
+
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+    metrics:
+        export:
+            prometheus:
+                enabled: 'true'
+
